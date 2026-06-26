@@ -1,8 +1,45 @@
 {% extends "base.html" %}
 {% block title %}Listado de productos{% endblock title %}
-
+{% block custom_styles %}{% endblock custom_styles %}
 {% block content %}
 <h1>Administracion de Productos</h1>
-
 <p>Bienvenido al panel de administración de Gamer Store.</p>
+<hr>
+<p>
+    <a href="#">➕ Nuevo Producto</a>
+</p>
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.categoria }}</td>
+            <td>${{ producto.precio }}</td>
+            <td>{{ producto.stock }}</td>
+            <td>
+                <a href="#">Editar</a>|<a href="#">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">
+                No existen productos registrados.
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
 {% endblock content %}
