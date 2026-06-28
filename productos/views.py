@@ -31,3 +31,11 @@ def editar_producto(request, id):
         form = ProductoForms(instance=producto)
         context = { 'form': form, 'producto': producto}
         return render(request, 'productos/editar_producto.html', context)
+    
+def eliminar_producto(request, id):
+    producto = get_object_or_404(Producto, id= id)
+    if request.method == 'POST':
+        producto.delete()
+        return redirect('lista_productos')
+    context = {'producto': producto}
+    return render(request, 'productos/eliminar_producto.html', context)
