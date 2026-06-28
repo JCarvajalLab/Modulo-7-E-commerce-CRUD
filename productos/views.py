@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForms
 
@@ -19,3 +19,15 @@ def crear_producto(request):
         form = ProductoForms()
     context = {'form': form}
     return render(request, 'productos/crear_producto.html', context)
+
+def editar_producto(request, id):
+    producto = get_object_or_404(Producto, id=id)
+    if request.method == 'POST':
+        form = ProductoForms(request.POST, instance=producto )
+        if form.is_valid():
+            form.save()
+            return redirect('lista_productos')
+    else:
+        form = ProductoForms(instance=producto)
+        context = { 'form': form, 'producto': producto}
+        return render(request, 'productos/editar_producto.html', context)
