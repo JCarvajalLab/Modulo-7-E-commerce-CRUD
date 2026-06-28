@@ -5,10 +5,11 @@
 {% block content %}
 <h1>Crear Producto</h1>
 
-<form action="">
+<form method="POST">
+    {% csrf_token %}
     {{ form.as_p }}
+    <button type="submit">Guardar</button>
 </form>
-<button type="submit">Guardar</button>
 <hr>
 
 <a href="{% url 'lista_productos' %}">
