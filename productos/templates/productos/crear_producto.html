@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Crear Productos{% endblock title %}
+{% block custom_styles %}{% endblock custom_styles %}
+
+{% block content %}
+<h1>Crear Producto</h1>
+
+<form action="">
+    {{ form.as_p }}
+</form>
+<button type="submit">Guardar</button>
+<hr>
+
+<a href="{% url 'lista_productos' %}">
+    ← Volver al listado
+</a>
+{% endblock content %}

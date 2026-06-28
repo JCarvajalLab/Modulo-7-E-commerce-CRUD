@@ -6,7 +6,7 @@
 <p>Bienvenido al panel de administración de Gamer Store.</p>
 <hr>
 <p>
-    <a href="#">➕ Nuevo Producto</a>
+    <a href="{% url 'crear_producto' %}">➕ Nuevo Producto</a>
 </p>
 <table border="1" cellpadding="8">
     <thead>
@@ -40,6 +40,4 @@
         {% endfor %}
     </tbody>
 </table>
-
-
 {% endblock content %}
