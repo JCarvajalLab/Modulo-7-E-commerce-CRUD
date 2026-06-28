@@ -32,8 +32,8 @@ def editar_producto(request, id):
             return redirect('lista_productos')
     else:
         form = ProductoForms(instance=producto)
-        context = { 'form': form, 'producto': producto}
-        return render(request, 'productos/editar_producto.html', context)
+    context = { 'form': form, 'producto': producto}
+    return render(request, 'productos/editar_producto.html', context)
     
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id= id)
