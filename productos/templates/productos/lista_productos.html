@@ -2,42 +2,51 @@
 {% block title %}Listado de productos{% endblock title %}
 {% block custom_styles %}{% endblock custom_styles %}
 {% block content %}
-<h1>Administracion de Productos</h1>
-<p>Bienvenido al panel de administración de Gamer Store.</p>
-<hr>
-<p>
-    <a href="{% url 'crear_producto' %}">➕ Nuevo Producto</a>
-</p>
-<table border="1" cellpadding="8">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Categoria</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for producto in productos %}
-        <tr>
-            <td>{{ producto.id }}</td>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.categoria }}</td>
-            <td>${{ producto.precio }}</td>
-            <td>{{ producto.stock }}</td>
-            <td>
-                <a href="{% url 'editar_producto' producto.id %}">Editar</a>|<a href="{% url 'eliminar_producto' producto.id %}">Eliminar</a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="6">
-                No existen productos registrados.
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="mb-1"> Gestión de Productos</h1>
+        <p class="text-muted mb-0"> Administra los productos disponibles en la tienda.</p>
+    </div>
+    <a href="{% url 'crear_producto' %}" class="btn btn-success"><i class="bi bi-plus-circle"></i> Nuevo Producto</a>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-striped table-hover align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.categoria }}</td>
+                    <td>${{ producto.precio }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>
+                        <a href="{% url 'editar_producto' producto.id %}" class="btn btn-group btn-warning btn-sm">
+                            <i class="bi bi-pencil-square"></i> Editar</a>
+                        <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-group btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6">
+                        No existen productos registrados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock content %}
+➕
