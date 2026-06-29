@@ -136,30 +136,30 @@ Panel admin en [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 
 ## Evidencia
 ### Listado de productos
-![alt text](static\images\image.png)
+![alt text](/static/images/image.png)
 ### Formulario de creación
-![alt text](static\images\image-1.png)
+![alt text](/static/images/image-1.png)
 ### Formulario de edición
-![alt text](static\images\image-2.png)
+![alt text](/static/images/image-2.png)
 ### Confirmación de eliminación
-![alt text](static\images\image-3.png)
+![alt text](/static/images/image-3.png)
 ### Alerta de edicion realizada
-![alt text](static\images\image-4.png)
+![alt text](/static/images/image-4.png)
 ### Panel administrativo
-![alt text](static\images\image-5.png)
+![alt text](/static/images/image-5.png)
 
-![alt text](static\images\image-6.png)
+![alt text](/static/images/image-6.png)
 
-![alt text](static\images\image-7.png)
+![alt text](/static/images/image-7.png)
 
-![alt text](static\images\image-8.png)
+![alt text](/static/images/image-8.png)
 
 ### PostgreSQL
-![alt text](static\images\image-9.png)
+![alt text](/static/images/image-9.png)
 
-![alt text](static\images\image-10.png)
+![alt text](/static/images/image-10.png)
 
-![alt text](static\images\image-11.png)
+![alt text](/static/images/image-11.png)
 ## Repositorio
 
 🔗 [https://github.com/JCarvajalLab/Modulo-7-E-commerce-CRUD](https://github.com/JCarvajalLab/Modulo-7-E-commerce-CRUD)
