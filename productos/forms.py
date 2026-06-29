@@ -6,6 +6,11 @@ class ProductoForms(forms.ModelForm):
         model = Producto 
         fields = ['nombre','descripcion', 'precio','stock', 'categoria',]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for campo in self.fields.values():
+            campo.widget.attrs.update({ 'class': 'form-control' })
+
     def clean_nombre(self):
         nombre = self.cleaned_data["nombre"].strip()
         if not nombre:
