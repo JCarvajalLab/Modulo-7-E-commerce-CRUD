@@ -2,12 +2,69 @@
 {% block title %}Modificar Productos{% endblock title %}
 {% block custom_styles %}{% endblock custom_styles %}
 {% block content %}
-<h1>Modificar Producto</h1>
-<p>Editando: <strong>{{ producto.nombre }}</strong></p>
-<hr>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar cambios</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-warning">
+            <div class="card-header bg-warning text-white">
+                <h3 class="mb-1"><i class="bi bi-pencil-square"></i>Editar Producto</h3>
+                <p class="mb-0">Modificando:<strong>{{ producto.nombre }}</strong></p>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- Nombre -->
+                    <div class="mb-3">
+                        <label for="{{ form.nombre.id_for_label }}" class="form-label">{{ form.nombre.label }}</label>
+                        {{ form.nombre }}
+                        {% if form.nombre.errors %}
+                            <div class="text-danger mt-1">{{ form.nombre.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <!-- Descripcion -->
+                    <div class="mb-3">
+                        <label for="{{ form.descripcion.id_for_label }}" class="form-label">{{ form.descripcion.label }}</label>
+                        {{ form.descripcion }}
+                        {% if form.descripcion.errors %}
+                            <div class="text-danger mt-1">{{ form.descripcion.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <!-- Precio y Stock -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.precio.id_for_label }}" class="form-label">{{ form.precio.label }}</label>
+                                {{ form.precio }}
+                                {% if form.precio.errors %}
+                                    <div class="text-danger mt-1">{{ form.precio.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.stock.id_for_label }}" class="form-label">{{ form.stock.label }}</label>
+                                {{ form.stock }}
+                                {% if form.stock.errors %}
+                                <div class="text-danger mt-1">{{ form.stock.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categoria -->
+                    <div class="mb-4">
+                        <label for="{{ form.categoria.id_for_label }}" class="form-label">{{ form.categoria.label }}</label>
+                        {{ form.categoria }}
+                        {% if form.categoria.errors %}
+                            <div class="text-danger mt-1">{{ form.categoria.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <!-- Botones -->
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{% url 'lista_productos' %}" class="btn btn-secondary"><i class="bi bi-x-circle"></i>Cancelar</a>
+                        <button type="submit" class="btn btn-warning"><i class="bi bi-floppy"></i>Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}

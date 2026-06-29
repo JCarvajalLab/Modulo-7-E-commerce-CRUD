@@ -2,12 +2,29 @@
 {% block title %}Elimar producto{% endblock title %}
 {% block custom_styles %}{% endblock custom_styles %}
 {% block content %}
-<p>¿Está seguro que desea eliminar el producto:<strong> {{ producto.nombre }}</strong>?</p>
-
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Sí, eliminar</button>
-</form>
-<br>
-<a href="{% url 'lista_productos' %}">Cancelar</a>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0"><i class="bi bi-trash"></i>Eliminar Producto</h3>
+            </div>
+            <div class="card-body">
+                <p class="fs-5">¿Estás seguro de que deseas eliminar el siguiente producto?</p>
+                <hr>
+                <p><strong>Nombre:</strong>{{ producto.nombre }}</p>
+                <p><strong>Categoría:</strong>{{ producto.categoria }}</p>
+                <p><strong>Precio:</strong>${{ producto.precio }}</p>
+                <p><strong>Stock:</strong>{{ producto.stock }}</p>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{% url 'lista_productos' %}" class="btn btn-secondary"><i class="bi bi-arrow-left-circle me-1"></i>Cancelar</a>
+                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
